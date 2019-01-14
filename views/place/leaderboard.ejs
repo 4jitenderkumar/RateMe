@@ -1,0 +1,43 @@
+<% layout('layout2') %>
+
+
+
+<div id="wrapper">
+
+    <% include ../partials/sidebar %>
+
+    <div id="page-content-wrapper">
+        <% include ../partials/navbar %>
+        <div class="container-fluid main_body">
+
+            <div class="bodyDiv">
+		
+                
+				
+				<% for(var i = 0; i < data.length; i++) {%> <!-- don't have to use equal sign while using loop-->
+                    
+                   <% var index = _.indexOf(data, data[i]); %>
+
+				    <div class="col-xs-12 col-md-6 col-lg-4 companyListDiv">
+                        <a href="/place-profile/<%= data[i]._id %>">
+                            <img src="/uploads/<%= data[i].image %>" class="companyListItemLogo">
+
+                            <div class="companyListItemInfo">
+                                <h5 class=""><%= data[i].name %></h5>
+                                <span class="">
+                                    <%= data[i].ratingSum %> Stars
+                                </span><br>
+                                <h5>#<%= index + 1 %></h5>
+                            </div>
+
+                        </a>
+                    </div>
+				<% } %>
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+
+

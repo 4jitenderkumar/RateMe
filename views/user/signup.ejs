@@ -1,0 +1,88 @@
+<% layout('layout') %>
+   
+
+<div class="container">
+    <br><br>
+    <div class="text-center reg_msg">
+        <h1><a href="/">RateMe</a></h1>
+    </div>
+   <br><br>
+
+
+   <div class="text-center reg_msg">
+        <h2 class="fancy"><span>SIGN UP</span></h2>
+   </div><br>
+
+    <div class="row signup">
+
+        <% if(hasErrors) {%>
+           <% for(var i = 0; i < messages.length; i++) {%>
+                <div class="alert alert-danger">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">
+                        &times;
+                    </a>
+                    <%= messages[i] %><!-- with = SIGN we can display messages-->
+                </div>
+            <% } %>
+        <% } %>
+
+        <form method="POST" class="" id="signupForm" action="/signup">
+
+            <div class="row">
+                <div class="form-group col-xs-12 input_group">
+                    <input id="fullname" class="form-control" name="fullname" type="text" autocomplete="on" placeholder="FULLNAME" style="margin-top: 50px; margin-bottom:20px;" >
+                </div>
+            </div>
+
+            <div class="form-group input_group">
+                <input id="email" class="form-control" name="email" type="text" autocomplete="on" placeholder="EMAIL" style="margin-bottom:20px;">
+            </div>
+
+            <div class="form-group input_group">
+                <input id="password" class="form-control" name="password" type="password" placeholder="PASSWORD" style="margin-bottom:20px;">
+            </div>
+
+
+            <div class="form-group ">
+                <label for="">Image</label><br>
+                
+                <button class="btn btn-lg" type="button" data-toggle="modal" data-target="#file">Add Image</button>
+                <span id="completed"></span>
+                
+                <div id="file" class="modal" tabindex="-1" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" id="close" class="close" data-dismiss="modal">&times;</button>
+                                <div class="modal-title">Upload Image</div>
+                            </div>
+                            
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="progress">
+                                        <div class="progress-bar" role="progressbar"></div>
+                                    </div>
+                                    
+                                    <button class="btn btn-lg upload-btn" type="button">Upload Image</button>
+                                    <input type="file" class="form-control" name="upload" id="upload-input" style="display:none">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="form-group">
+                <input type="submit" id="submit" value="SIGN UP" class="form-control btn btn-primary" name="submit" style="margin-bottom: 20px">
+            </div>
+
+          </form>
+
+          <div>
+              <h4>Already have an account? <a href="/login">Login</a></h4>
+          </div>
+
+
+    </div>
+</div>

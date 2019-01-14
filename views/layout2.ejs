@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+     <% include partials/header2 %> 
+<body>
+     <%- body -%>
+
+     <% include partials/footer %> 
+
+   <script src="/js/rating.js"></script>
+   <script src="/js/jquery.raty.js"></script> <!-- jquery plugins for adding ratings -->
+
+   <script>
+    $(document).ready(function() {
+       $.fn.raty.defaults.path = '/images/';
+       $('.star').raty({
+           readOnly : true,
+           score: function(data){
+                return $(this).attr('data-score');
+           }
+        });
+    });    
+    </script>
+    
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+ <div id="sidebar-wrapper">
+    <div class="sidebar-brand">
+        <a href="/home">RateMe</a>
+    </div>
+
+    <ul class="sidebar-nav">
+        <img src="/uploads/<%= user.image %>" class="img-responsive img-circle profile_img" alt="\uploads\noUser.png"> <!-- Give us image with size 100*100, profile_img is our own class BUT other two are BOOTSTRAP classes-->
+        <div class="profile_info">
+            <span>Welcome,</span>
+            <h2><%= user.fullname %></h2>
+        </div>
+
+        <li>
+            <a href="/home"><i class="fa fa-home"></i>Home</a>
+        </li>
+        <li>
+            <a href="/place/create"><i class="fa fa-bars"></i>Add Place</a>
+        </li>
+        <li>
+            <a href="/place/search"><i class="fa fa-search"></i>Place search</a>
+        </li>
+        <li>
+            <a href="/places/leaderboard-search"><i class="fa fa-bars"></i>Leaderboard</a>
+        </li> 
+        <li>
+            <a href="/logout"><i class="fa fa-sign-out"></i>Logout</a>
+        </li>  
+    </ul>
+</div>

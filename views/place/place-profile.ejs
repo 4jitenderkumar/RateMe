@@ -1,0 +1,192 @@
+<% layout('layout2') %>
+
+
+<div id="wrapper">
+
+    <% include ../partials/sidebar %>
+
+    <div id="page-content-wrapper">
+        <% include ../partials/navbar %>
+        <div class="container-fluid main_body">
+			
+            <div class="bodyDiv">
+
+	    <!--        <div class="row mainDiv">
+					<div class="innerDiv">
+						<div class="col-md-3" style="margin-bottom:30px;">
+							<img src="/uploads/<%= data.image %>" style="border:thin solid black;" width="270px" height="270px" alt="">
+							<h3><%= data.name %></h3>
+							<i class="fa fa-map-marker "> <%= data.city %>, <%= data.country %></i><br>
+							<i class="fa fa-external-link "><a href="http://<%= data.map %>" target="_blank">
+								http://<%= data.map %></a>
+							</i><br><br>
+							
+							<a href="/review/<%= data._id %>" class="btn btn-success">Rate this place</a><br><br>
+							
+							<h3>Average Rating</h3>
+							<h5 class="star" data-score="<%= average %>"></h5>
+							<p>Based on <%= data.ratingNumber.length %> review(s)</p>
+						</div>
+
+						<div class="col-md-9 colDiv">
+							<div class="row">
+								<div class="col-md-4">
+									<div class="count">
+										<h1>
+											<%= data.ratingNumber.length %>
+										</h1>
+										<h2>Ratings</h2>
+									</div>
+
+								</div>
+
+								<div class="col-md-4">
+									<div class="count">
+										<h1>
+											<%= data.ratingSum %>
+										</h1>
+										<h2>Total Stars</h2>
+									</div>
+								</div>
+
+								<div class="col-md-4">
+									<div class="count">
+										<h1>
+											<span class="star" data-score="<%= average %>"></span>
+										</h1>
+										<h2>Average Rating (<%= average %>)</h2>
+									</div>
+								</div><br><br>
+
+								<div class="col-md-12 header">
+									<h2>Reviews (<%= data.ratingNumber.length %>)</h2>
+
+									<div class="linkDiv">
+										<a href="" class="btn btn-success">
+											Write Review</a>
+									</div>
+								</div>
+								
+								<% if(data.placeRating.length > 0) {%>
+									<% data.placeRating.forEach(function(val){ %>
+										<% if(val.userReview != 0) {%>
+								        <div class="col-md-12 reviewDiv">
+                                            <div class="col-md-2">
+                                                <img src="/uploads/<%= val.userImage %>" class="img-responsive img-circle profile_img" alt="">
+                                            </div>
+
+                                            <div class="col-md-8">
+                                                <h1>
+                                                    <%= val.userFullname %>  <%= val.userDate %>
+                                                </h1>
+                                                <p><%= val.userReview %></p>
+                                            </div>
+
+                                            <div class="col-md-2" style="width:150px">
+                                                <h1>Rating</h1>
+                                                <span class="star" data-score="<%= val.userRating %>"></span>
+                                            </div>
+										</div>
+										<% }%>
+								    <% })%>
+								<% }%>
+								
+								
+
+
+							</div>
+						</div>
+					</div>
+
+				</div> -->
+				<div class="row mainDiv" style="width:1050px; margin:0 auto;">
+					<div class="innerDiv">
+						<div class="col-md-8" style="margin-bottom:30px;">
+							<img src="/uploads/<%= data.image %>" style="border:thin solid black;" width="1000px" height="500px" alt="\uploads\noUser.png">
+							<h3><%= data.name %></h3>
+							<i class="fa fa-map-marker "> <%= data.city %>, <%= data.country %></i><br>
+							<i class="fa fa-external-link "><a href="<%= data.map %>" target="_blank">
+								Map</a>
+							</i><br><br>
+							
+							<a href="/review/<%= data._id %>" class="btn btn-success">Rate this place</a>
+
+						</div>
+
+						<div class="col-md-11 colDiv">
+							<div class="row">
+								<div class="col-md-4">
+									<div class="count">
+										<h1>
+											<%= data.ratingNumber.length %>
+										</h1>
+										<h2>Ratings</h2>
+									</div>
+
+								</div>
+
+								<div class="col-md-4">
+									<div class="count">
+										<h1>
+											<%= data.ratingSum %>
+										</h1>
+										<h2>Total Stars</h2>
+									</div>
+								</div>
+
+								<div class="col-md-4">
+									<div class="count">
+										<h1>
+											<span class="star" data-score="<%= average %>"></span>
+										</h1>
+										<h2>Average Rating (<%= average %>)</h2>
+									</div>
+								</div><br><br>
+
+								<div class="col-md-12 header">
+									<h2>Reviews (<%= data.ratingNumber.length %>)</h2>
+
+									<div class="linkDiv">
+										<a href="" class="btn btn-success">
+											Write Review</a>
+									</div>
+								</div>
+								
+								<% if(data.placeRating.length > 0) {%>
+									<% data.placeRating.forEach(function(val){ %>
+										<% if(val.userReview != 0) {%>
+								        <div class="col-md-12 reviewDiv" style="width:1030px; margin:0 auto;">
+                                            <div class="col-md-2">
+                                                <img src="/uploads/<%= val.userImage %>" class="img-responsive img-circle profile_img" alt="">
+                                            </div>
+
+                                            <div class="col-md-8">
+                                                <h1>
+                                                    <%= val.userFullname %>  <%= val.userDate %>
+                                                </h1>
+                                                <p><%= val.userReview %></p>
+                                            </div>
+
+                                            <div class="col-md-2" style="width:150px">
+                                                <h1>Rating</h1>
+                                                <span class="star" data-score="<%= val.userRating %>"></span>
+                                            </div>
+										</div>
+										<% }%>
+								    <% })%>
+								<% }%>
+								
+								
+
+
+							</div>
+						</div>
+					</div>
+
+	            </div> -->
+            </div>
+        </div>
+    </div>
+
+</div>
+
