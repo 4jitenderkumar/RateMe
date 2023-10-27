@@ -15,7 +15,10 @@ var _ = require('underscore');// making _ global variable, to use this variable 
 var app = express();
 
 mongoose.Promise = global.Promise;//plugin our own mongoose library ELSE deprecated WARNING
-mongoose.connect('mongodb://localhost/travel');//because we only want to use 1 database at a time,IF we want to use several databases at a time then mongoose.createconnection 
+// For localhost
+// mongoose.connect('mongodb://localhost/travel', { useNewUrlParser: true, useUnifiedTopology: true });//because we only want to use 1 database at a time,IF we want to use several databases at a time then mongoose.createconnection 
+// For cloud
+mongoose.connect('mongodb+srv://rateme:rateme@rateme.mi4hrkz.mongodb.net/rateme?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });//because we only want to use 1 database at a time,IF we want to use several databases at a time then mongoose.createconnection 
 
 require('./config/passport');
 require('./secret/secret.js');
